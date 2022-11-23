@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.userservice.models.Car;
 
-@FeignClient(name = "service-car", url = "http://localhost:8082")
+@FeignClient(name = "service-car") //without gateway-> url = "http://localhost:8082"
 @RequestMapping("/car")
 public interface CarFeignClient {
 	
