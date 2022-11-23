@@ -99,27 +99,29 @@ public class UserController {
 		return ResponseEntity.ok(result);
 	}
 
-	private ResponseEntity<String> fallBackGetCars(@PathVariable("userid") Integer userid, RuntimeException exception) {
-		return new ResponseEntity<String>("User: " + userid + " has the cars in the workshop", HttpStatus.OK);
+	
+	
+	private ResponseEntity<List<Car>> fallBackGetCars(@PathVariable("userid") Integer userid, RuntimeException exception) {
+		return new ResponseEntity("User: " + userid + " has the cars in the workshop", HttpStatus.OK);
 	}
 
-	private ResponseEntity<String> fallBackSaveCar(@PathVariable("userid") Integer userid, @RequestBody Car car,
+	private ResponseEntity<Car> fallBackSaveCar(@PathVariable("userid") Integer userid, @RequestBody Car car,
 			RuntimeException exception) {
-		return new ResponseEntity<String>("User: " + userid + " has no money to cars", HttpStatus.OK);
+		return new ResponseEntity("User: " + userid + " has no money to cars", HttpStatus.OK);
 	}
 
-	private ResponseEntity<String> fallBackGetBikes(@PathVariable("userid") Integer userid, RuntimeException exception) {
-		return new ResponseEntity<String>("User: " + userid + " has the bikes in the workshop", HttpStatus.OK);
+	private ResponseEntity<List<Bike>> fallBackGetBikes(@PathVariable("userid") Integer userid, RuntimeException exception) {
+		return new ResponseEntity("User: " + userid + " has the bikes in the workshop", HttpStatus.OK);
 	}
 
-	private ResponseEntity<String> fallBackSaveBike(@PathVariable("userid") Integer userid, @RequestBody Bike bike,
+	private ResponseEntity<Bike> fallBackSaveBike(@PathVariable("userid") Integer userid, @RequestBody Bike bike,
 			RuntimeException exception) {
-		return new ResponseEntity<String>("User: " + userid + " has no money to bikes", HttpStatus.OK);
+		return new ResponseEntity("User: " + userid + " has no money to bikes", HttpStatus.OK);
 	}
 
-	private ResponseEntity<String> fallBackGetAll(@PathVariable("userid") Integer userid, @RequestBody Bike bike,
+	private ResponseEntity<Map<String, Object>> fallBackGetAll(@PathVariable("userid") Integer userid, @RequestBody Bike bike,
 			RuntimeException exception) {
-		return new ResponseEntity<String>("User: " + userid + " has the vehicles in the workshop", HttpStatus.OK);
+		return new ResponseEntity("User: " + userid + " has the vehicles in the workshop", HttpStatus.OK);
 	}
 
 }
